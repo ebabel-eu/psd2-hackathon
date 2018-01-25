@@ -57,3 +57,5 @@ typings/
 # dotenv environment variables file
 .env
 
+# Confidential files that should never be commited to a repository
+passwords.json

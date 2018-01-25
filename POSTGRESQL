@@ -1,0 +1,31 @@
+# PostgreSQL
+This API uses version 9.5.10 of PostgreSQL.
+
+## Install for the first time on Ubuntu dev machine
+
+In Ubuntu Software, find the `postgresql96` application and install it. You will need to register an Ubuntu One account.
+
+In Terminal, setup a password for the default `postgres` user
+
+```
+sudo -u postgres psql postgres
+\password postgres
+\q
+```
+
+Allow local connections
+
+Edit or create the file `/etc/postgresql/9.5/main/pg_hba.conf` and put at the end of the file:
+
+```
+local  all                                          trust
+host   all        127.0.0.1      255.255.255.255    trust
+```
+
+Restart postgres:
+```
+sudo service postgresql restart
+```
+
+Source: http://suite.opengeo.org/docs/latest/dataadmin/pgGettingStarted/firstconnect.html
+

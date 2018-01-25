@@ -1,0 +1,20 @@
+{
+  "env": {
+    "browser": false,
+    "es6": true,
+    "jquery": false,
+    "mocha": false,
+    "commonjs": true
+  },
+  "parser": "eslint",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true,
+      "jsx": false
+    },
+    "sourceType": "module"
+  },
+  "extends": [
+    "airbnb"
+  ]
+}
