@@ -1,4 +1,4 @@
-# psd2-loans-hackaton
+# psd2-hackathon
 This Node.js API provides data to help developers innovate with loans. Suggestions on ideas to dig: Payment Services Directive II (PSD II or PSD 2), point of sale integration, and any related topic.
 
 ## Install

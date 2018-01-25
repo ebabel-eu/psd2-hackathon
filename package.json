@@ -1,5 +1,5 @@
 {
-  "name": "psd2-loans-hackaton",
+  "name": "psd2-hackathon",
   "version": "1.0.0",
   "private": true,
   "engines": {
@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "ssh://git@gitlab.ing.net:2222/LX59OV/psd2-loans-hackaton.git"
+    "url": "git@github.com:ebabel-eu/psd2-hackaton.git"
   },
   "keywords": [
     "psd2",

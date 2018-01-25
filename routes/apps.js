@@ -32,7 +32,7 @@ router.get('/:appID', (req, res, next) => {
 });
 
 router.post('/', (req, res, next) => {
-  if (!req.body || !req.body.name || !req.body.authors || !req.body.contact) {
+  if (!req.body || !req.body.name || !req.body.author || !req.body.contact) {
     return respondJson(res, { message: 'Please POST a JSON payload: name (string - name of your app), author (string), contact (string - e-mail or other details to contact you).' }, 400);
   }
 
