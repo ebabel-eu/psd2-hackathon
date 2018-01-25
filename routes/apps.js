@@ -1,7 +1,9 @@
 const express = require('express');
 const router = express.Router();
+const passwords = require('../passwords.json');
+
 const pgp = require('pg-promise')(/*options*/);
-const db = pgp('postgres://username:password@host:port/database');
+const db = pgp(`postgres://${passwords.postgresql.username}:${passwords.postgresql.password}@localhost:port/psd2hackathon`);
 
 const respondJson = require('../utils/respond-json');
 
