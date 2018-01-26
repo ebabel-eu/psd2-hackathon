@@ -22,6 +22,7 @@ In development, API available on http://localhost:3000 by default.
 
 ## Run for production
 ```
+export PORT=80
 npm start
 ```
 
