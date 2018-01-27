@@ -1,9 +1,13 @@
 const express = require('express');
 const router = express.Router();
-const passwords = require('../passwords.json');
 
 const pgp = require('pg-promise')(/*options*/);
-const db = pgp(`postgres://${passwords.postgresql.username}:${passwords.postgresql.password}@localhost:port/psd2hackathon`);
+const {
+  POSTGRES_USERNAME,
+  POSTGRES_PASSWORD,
+  POSTGRES_PORT
+} = process.env;
+const db = pgp(`postgres://${POSTGRES_USERNAME}:${POSTGRES_PASSWORD}@localhost:${POSTGRES_PORT}/psd2hackathon`);
 
 const respondJson = require('../utils/respond-json');
 
@@ -13,9 +17,6 @@ let id = 0;
 const store = [];
 
 router.get('/', (req, res, next) => {
-  respondJson(res, store);
-
-  /*
   db.one('SELECT $1 AS value', 123)
     .then((data) => {
       respondJson(res, data.value);
@@ -23,7 +24,6 @@ router.get('/', (req, res, next) => {
     .catch((error) => {
       respondJson(res, error, 500);
     });
-  */
 });
 
 router.get('/:appID', (req, res, next) => {

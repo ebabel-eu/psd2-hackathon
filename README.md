@@ -13,6 +13,23 @@ One of the methods of installing PostgreSQL in Ubuntu is to use the Ubuntu Softw
 
 For a [first time installation](POSTGRESQL) of PostgreSQL on your Ubuntu machine, see further instructions.
 
+## Environment variables
+For this API to work, it needs environment variables to be set server-side. These values are kept server-side and not sent to any client. Each server has its own values based on the PostgreSQL installation made on that particular server.
+
+Note the typical port for PostgreSQL is 5432.
+
+```
+export POSTGRES_USERNAME=[your PostgreSQL username gets saved in your environment variables here]
+export POSTGRES_PASSWORD=[set the password of that user here and it stays server-side]
+export POSTGRES_PORT=[set the port of your PostgreSQL server, made available on localhost on your server]
+```
+
+The API also needs to have a specific port setup, which typically is port 80 to publish the API to the world.
+
+```
+export PORT=80
+```
+
 ## Run for development
 ```
 npm run debug
@@ -22,9 +39,10 @@ In development, API available on http://localhost:3000 by default.
 
 ## Run for production
 ```
-export PORT=80
 npm start
 ```
+
+Note: on most PostgreSQL installations, the default POSTGRES_PORT environment variable should be set to 5432.
 
 ## Starting point
 To see more endpoints, start with a `GET` request on `/api/v1`

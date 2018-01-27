@@ -20,9 +20,10 @@
     "psd2",
     "loans",
     "pos",
+    "pos integration",
     "banking",
     "finance",
-    "hackaton"
+    "hackathon"
   ],
   "author": "Nadjib Amar <nadjib.amar@ing.nl>",
   "license": "GPL-3.0",
