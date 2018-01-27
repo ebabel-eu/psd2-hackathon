@@ -1,3 +1,5 @@
+'use strict';
+
 const removeLast = require('./remove-last');
 
 const entityCrud = (entity, ids = '/:appID/:bankID') => {

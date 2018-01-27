@@ -4,17 +4,10 @@ const express = require('express');
 const router = express.Router();
 
 const create = require('../models/apps/create');
+const read = require('../models/apps/read');
 const list = require('../models/apps/list');
 
 const respondJson = require('../utils/respond-json');
-
-router.get('/', (req, res, next) => {
-  list(res);
-});
-
-router.get('/:appID', (req, res, next) => {
-  read(req, res);
-});
 
 router.post('/', (req, res, next) => {
   if (!req.body || !req.body.name || !req.body.author || !req.body.contact) {
@@ -29,8 +22,11 @@ router.post('/', (req, res, next) => {
   }
   */
 
-  // create is a promise that will return JSON.
   create(req, res);
+});
+
+router.get('/:appID', (req, res, next) => {
+  read(req, res);
 });
 
 router.put('/:appID', (req, res, next) => {
@@ -39,6 +35,10 @@ router.put('/:appID', (req, res, next) => {
 
 router.delete('/:appID', (req, res, next) => {
   res.send('todo: implement deleting an app.');
+});
+
+router.get('/', (req, res, next) => {
+  list(res);
 });
 
 module.exports = router;

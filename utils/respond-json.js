@@ -1,3 +1,5 @@
+'use strict';
+
 const respondJson = (res, toReturn, httpStatus = 200) => {
   res.status(httpStatus);
   res.setHeader('Content-Type', 'application/json');

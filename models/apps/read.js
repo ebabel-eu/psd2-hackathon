@@ -4,7 +4,7 @@ const db = require('../../utils/db');
 const respondJson = require('../../utils/respond-json');
 
 const read = (req, res) => {
-  const sql = 'select * from apps where id=';
+  const sql = `select * from apps where id='${req.params.appID}'`;
 
   db.oneOrNone(sql)
   .then((data) => {
