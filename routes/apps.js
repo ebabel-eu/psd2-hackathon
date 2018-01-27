@@ -1,36 +1,19 @@
+'use strict';
+
 const express = require('express');
 const router = express.Router();
 
-const pgp = require('pg-promise')(/*options*/);
-const {
-  POSTGRES_USERNAME,
-  POSTGRES_PASSWORD,
-  POSTGRES_PORT
-} = process.env;
-const db = pgp(`postgres://${POSTGRES_USERNAME}:${POSTGRES_PASSWORD}@localhost:${POSTGRES_PORT}/psd2hackathon`);
+const create = require('../models/apps/create');
+const list = require('../models/apps/list');
 
 const respondJson = require('../utils/respond-json');
 
-// temporary store in memory for all apps.
-// will be replace by postgreSQL
-let id = 0;
-const store = [];
-
 router.get('/', (req, res, next) => {
-  db.one('SELECT $1 AS value', 123)
-    .then((data) => {
-      respondJson(res, data.value);
-    })
-    .catch((error) => {
-      respondJson(res, error, 500);
-    });
+  list(res);
 });
 
 router.get('/:appID', (req, res, next) => {
-  const result = store.filter(apps =>
-    apps.id.toLowerCase() === req.params.appID.toLowerCase());
-
-  respondJson(res, result);
+  read(req, res);
 });
 
 router.post('/', (req, res, next) => {
@@ -38,22 +21,16 @@ router.post('/', (req, res, next) => {
     return respondJson(res, { message: 'Please POST a JSON payload: name (string - name of your app), author (string), contact (string - e-mail or other details to contact you).' }, 400);
   }
 
-  // todo: check if the name does not already exists.
+  /*
+  const nameAlreadyExists = store.filter(app =>
+    app.name.toLowerCase() === req.body.name.toLowerCase()).length > 0;
+  if (nameAlreadyExists) {
+    return respondJson(res, { message: `${req.body.name} already exists. If you meant to create a new app, please use a different name. If you wanted more details about this app, please request a GET /app/v1/apps/:appID` }, 400);
+  }
+  */
 
-  const newApp = {
-    id,
-    name: req.body.name,
-    author: req.body.author,
-    contact: req.body.contact,
-    enabled: true,
-    dateCreated: new Date().toLocaleString('nl'),
-  };
-
-  store.push(newApp);
-
-  id = id + 1;
-
-  respondJson(res, newApp);
+  // create is a promise that will return JSON.
+  create(req, res);
 });
 
 router.put('/:appID', (req, res, next) => {
