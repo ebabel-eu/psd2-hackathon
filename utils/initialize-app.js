@@ -6,8 +6,15 @@ const randomNames = require('./random-names');
 
 // Generate a lot of data for a new app that has just been created.
 const customers = (suffix) => {
-  const names = randomNames(1000);
-
+  db.tx(t => {
+    const names = randomNames(1000);
+    const queries = names.map(name =>
+      t.none(`insert into customers_${suffix} (id, name, psd2share) values ('${guid()}', '${name}', false);`));
+    return t.batch(queries);
+  })
+    .catch(error => {
+      console.log(error);
+    });
 };
 
 // Create the tables that will be filled with data for a single app.

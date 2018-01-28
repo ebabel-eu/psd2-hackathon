@@ -55,17 +55,17 @@ Create a new app. Response will return if this was successful and what the appID
 
 ## Database design
 Customers table
--	ID (primary key)
--	Name
--	Psd2Share (Boolean to indicate willingness to participate in PSD II)
+-	id (primary key)
+-	name
+-	psd2share (Boolean to indicate willingness to participate in PSD II)
 
 Loans table
--	ID (primary key)
--	CustomerID (for Customers table, ID column)
--	Balance
+-	id (primary key)
+-	customerid (for Customers table, ID column)
+-	balance
 
 Transactions table
--	ID (primary key)
--	LoanID (for Loans table, ID column)
--	Timestamp
--	Amount (can be negative or positive)
+-	id (primary key)
+-	loanid (for Loans table, ID column)
+-	timestamp
+-	amount (can be negative or positive)
