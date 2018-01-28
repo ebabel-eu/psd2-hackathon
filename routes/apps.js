@@ -23,7 +23,7 @@ router.get('/:appID', (req, res, next) => {
 });
 
 router.put('/:appID', (req, res, next) => {
-  res.send('todo: implement updating an existing app.');
+  update(req, res, req.body);
 });
 
 router.delete('/:appID', (req, res, next) => {
