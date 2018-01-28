@@ -57,16 +57,15 @@ Create a new app. Response will return if this was successful and what the appID
 Customers table
 -	ID (primary key)
 -	Name
--	DateOfBirth
--	PsdShare (Boolean to indicate willingness to participate in PSD II)
+-	Psd2Share (Boolean to indicate willingness to participate in PSD II)
 
 Loans table
 -	ID (primary key)
--	CustomerID (foreign key for Customers table, ID column)
+-	CustomerID (for Customers table, ID column)
 -	Balance
 
 Transactions table
 -	ID (primary key)
--	LoanID (foreign key for Loans table, ID column)
--	Date
+-	LoanID (for Loans table, ID column)
+-	Timestamp
 -	Amount (can be negative or positive)

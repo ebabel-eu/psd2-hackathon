@@ -3,6 +3,7 @@
 const db = require('../../utils/db');
 const guid = require('../../utils/guid');
 const respondJson = require('../../utils/respond-json');
+const initializeApp = require('../../utils/initialize-app');
 
 // Create an app and all its data.
 const create = (req, res) => {
@@ -20,6 +21,7 @@ const create = (req, res) => {
   db.one(sql, [newApp.id, newApp.name, newApp.author, newApp.contact, newApp.enabled, newApp.created])
   .then((data) => {
     respondJson(res, data);
+    initializeApp(newApp.id);
   })
   .catch((error) => {
     respondJson(res, error, 500);
