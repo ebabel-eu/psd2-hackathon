@@ -2,6 +2,7 @@
 
 const db = require('./db');
 const guid = require('./guid');
+const randomNames = require('./random-names');
 
 // Generate a lot of data for a new app that has just been created.
 const customers = (suffix) => {
