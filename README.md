@@ -54,18 +54,31 @@ You need to create your own app, which will give you access to your own set of d
 Create a new app. Response will return if this was successful and what the appID is. New apps are enabled by default.
 
 ## Database design
-Customers table
+`apps` table
+- id (primary key)
+- name
+- author
+- contact
+- enabled
+- created
+
+`banks` table
+- id (primary key)
+- name
+
+`customers` table
 -	id (primary key)
 -	name
+- bankid (for Banks table, id column)
 -	psd2share (Boolean to indicate willingness to participate in PSD II)
 
-Loans table
+`loans` table
 -	id (primary key)
--	customerid (for Customers table, ID column)
+-	customerid (for Customers table, id column)
 -	balance
 
-Transactions table
+`transactions` table
 -	id (primary key)
--	loanid (for Loans table, ID column)
+-	loanid (for Loans table, id column)
 -	timestamp
 -	amount (can be negative or positive)
