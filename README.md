@@ -70,16 +70,16 @@ Create a new app. Response will return if this was successful and what the appID
 `customers` table
 -	id (primary key)
 -	name
-- bankid (for Banks table, id column)
+- bankid (for `banks` table, `id` column)
 -	psd2share (Boolean to indicate willingness to participate in PSD II)
 
 `loans` table
 -	id (primary key)
--	customerid (for Customers table, id column)
+-	customerid (for `customers` table, `id` column)
 -	balance
 
 `transactions` table
 -	id (primary key)
--	loanid (for Loans table, id column)
+-	loanid (for `loans` table, `id` column)
 -	timestamp
 -	amount (can be negative or positive)
