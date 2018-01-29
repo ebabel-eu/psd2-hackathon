@@ -1,8 +1,6 @@
 const firstNames = require('./first-names.json');
 const lastNames = require('./last-names.json');
-
-// Includes 0 but not the max value.
-const randomIndex = (max) => Math.floor(Math.random() * max);
+const randomIndex = require('./random-index');
 
 // Return a given number of random combinations of names.
 const randomNames = (total) => new Array(total).fill('')

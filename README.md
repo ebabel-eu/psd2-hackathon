@@ -65,6 +65,7 @@ Create a new app. Response will return if this was successful and what the appID
 `banks` table
 - id (primary key)
 - name
+- enabled
 
 `customers` table
 -	id (primary key)

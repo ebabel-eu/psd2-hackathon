@@ -16,7 +16,7 @@ const create = (req, res) => {
     created: Date.now(),
   };
 
-  const sql = 'insert into apps (id, name, author, contact, enabled, created) values ($1, $2, $3, $4, $5, $6) returning id';
+  const sql = 'insert into apps (id, name, author, contact, enabled, created) values ($1, $2, $3, $4, $5, $6) returning *';
 
   db.one(sql, [newApp.id, newApp.name, newApp.author, newApp.contact, newApp.enabled, newApp.created])
   .then((data) => {
