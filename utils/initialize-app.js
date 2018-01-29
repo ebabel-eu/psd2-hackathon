@@ -26,7 +26,7 @@ const banks = (suffix) => {
   return banksToCreate;
 };
 
-// Generate a lot of data for a new app that has just been created.
+// Generate several customers for a new app that has just been created.
 const customers = (suffix, createdBanks) => {
   db.tx(t => {
     const names = randomNames(1000);
