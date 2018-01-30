@@ -8,6 +8,11 @@ This Node.js API provides data to help developers innovate with loans. Suggestio
 npm install
 ```
 
+Global install, if you don't already have it:
+```
+sudo npm install forever -g
+```
+
 ### PostgreSQL database
 One of the methods of installing PostgreSQL in Ubuntu is to use the Ubuntu Software application.
 
