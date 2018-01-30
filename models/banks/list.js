@@ -6,6 +6,8 @@ const respondJson = require('../../utils/respond-json');
 const list = (req, res) => {
   const sql = `select * from banks_${req.params.appID};`;
 
+  console.log(sql);
+
   db.manyOrNone(sql)
   .then((data) => {
     respondJson(res, data);

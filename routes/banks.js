@@ -1,7 +1,7 @@
 'use strict';
 
 const express = require('express');
-const router = express.Router();
+const router = express.Router({ mergeParams: true });
 
 const list = require('../models/banks/list');
 
@@ -25,6 +25,7 @@ router.delete('/:bankID', (req, res, next) => {
 });
 
 router.get('/', (req, res, next) => {
+  console.log('params: ' + JSON.stringify(req.params));
   list(req, res);
 });
 

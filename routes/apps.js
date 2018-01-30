@@ -1,7 +1,7 @@
 'use strict';
 
 const express = require('express');
-const router = express.Router();
+const router = express.Router({ mergeParams: true });
 
 const create = require('../models/apps/create');
 const read = require('../models/apps/read');
