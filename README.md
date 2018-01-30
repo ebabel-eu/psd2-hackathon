@@ -76,7 +76,8 @@ Create a new app. Response will return if this was successful and what the appID
 `loans` table
 -	id (primary key)
 -	customerid (for `customers` table, `id` column)
--	balance
+- created
+- borrowed
 
 `transactions` table
 -	id (primary key)
