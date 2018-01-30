@@ -8,8 +8,8 @@ const update = (req, res, newValues) => {
   .then((data) => {
     if (data) {
       const result = Object.assign(data, newValues);
-      const sql = 'update apps set name = $1, author = $2, contact = $3, enabled = $4 where id = $5 returning *';
-      db.oneOrNone(sql, [ result.name, result.author, result.contact, result.enabled, req.params.appID ])
+      const sql = 'update apps set author = $1, contact = $2, enabled = $3 where id = $4 returning *';
+      db.oneOrNone(sql, [ result.author, result.contact, result.enabled, req.params.appID ])
       .then((data) => {
         respondJson(res, data);
       })

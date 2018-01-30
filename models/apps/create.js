@@ -1,14 +1,13 @@
 'use strict';
 
 const db = require('../../utils/db');
-const guid = require('../../utils/guid');
 const respondJson = require('../../utils/respond-json');
 const initializeApp = require('../../utils/initialize-app');
 
 // Create an app and all its data.
 const create = (req, res) => {
   const newApp = {
-    id: guid(),
+    id: req.body.name.replace(/ /g, '-').toLowerCase(),
     name: req.body.name,
     author: req.body.author,
     contact: req.body.contact,

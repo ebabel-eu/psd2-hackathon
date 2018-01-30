@@ -31,7 +31,7 @@ Source: http://suite.opengeo.org/docs/latest/dataadmin/pgGettingStarted/firstcon
 
 ## Create the `psd2hackathon` database
 ```
-psql
+psql (or psql -U postgres)
 create database psd2hackathon;
 create user [your database username] with password '[your database password]';
 grant all privileges on database psd2hackathon to [your database username];
@@ -42,12 +42,12 @@ grant all privileges on database psd2hackathon to [your database username];
 ```
 psql -U [your database username] -d psd2hackathon
 create table apps (
-    id          uuid CONSTRAINT apps_pk PRIMARY KEY,
-    name        varchar(255) NOT NULL UNIQUE,
-    author      varchar(255) NOT NULL,
-    contact     varchar(255) NOT NULL,
-    enabled     boolean,
-    created     bigint
+  id          varchar(255) CONSTRAINT apps_pk PRIMARY KEY,
+  name        varchar(255) NOT NULL UNIQUE,
+  author      varchar(255) NOT NULL,
+  contact     varchar(255) NOT NULL,
+  enabled     boolean,
+  created     bigint
 );
 ```
 

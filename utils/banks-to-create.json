@@ -1,0 +1,6 @@
+[
+  { "id": "gin-bank", "name": "GIN Bank", "enabled": true },
+  { "id": "nba-roma", "name": "NBA Roma", "enabled": true },
+  { "id": "satiera-bank", "name": "Satiera Bank", "enabled": true },
+  { "id": "mpkeen", "name": "mpKeen", "enabled": true }
+]
