@@ -7,8 +7,6 @@ const cleanString = require('../../utils/clean-string');
 const read = (req, res) => {
   const sql = 'select * from apps where id = $1;';
 
-  console.log(sql);
-
   db.oneOrNone(sql, [ cleanString(req.params.appID) ])
   .then((data) => {
     if (data) {

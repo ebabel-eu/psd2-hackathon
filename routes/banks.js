@@ -25,7 +25,6 @@ router.delete('/:bankID', (req, res, next) => {
 });
 
 router.get('/', (req, res, next) => {
-  console.log('params: ' + JSON.stringify(req.params));
   list(req, res);
 });
 
