@@ -3,11 +3,12 @@
 const db = require('../../utils/db');
 const respondJson = require('../../utils/respond-json');
 const initializeApp = require('../../utils/initialize-app');
+const cleanString = require('../../utils/clean-string');
 
 // Create an app and all its data.
 const create = (req, res) => {
   const newApp = {
-    id: req.body.name.replace(/ /g, '-').toLowerCase(),
+    id: cleanString(req.body.name),
     name: req.body.name,
     author: req.body.author,
     contact: req.body.contact,

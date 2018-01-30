@@ -5,6 +5,7 @@ const guid = require('./guid');
 const randomNames = require('./random-names');
 const randomIndex = require('./random-index');
 const banksToCreate = require('./banks-to-create.json');
+const cleanString = require('./clean-string');
 
 // Generate 4 banks for a new app.
 const banks = (suffix) => {
@@ -37,7 +38,7 @@ const customers = (suffix, createdBanks) => {
 
 // Create the tables that will be filled with data for a single app.
 const initializeApp = (appID) => {
-  const suffix = appID.replace(/-/g, '_');
+  const suffix = cleanString(appID);
 
   // Create empty tables for a new app.
   db.tx(t => {
