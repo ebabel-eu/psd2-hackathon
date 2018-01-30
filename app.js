@@ -10,6 +10,7 @@ const bodyParser = require('body-parser');
 const index = require('./routes/index');
 const v1 = require('./routes/v1');
 const apps = require('./routes/apps');
+const banks = require('./routes/banks');
 
 const app = express();
 
@@ -27,6 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/api/v1', v1);
 app.use('/api/v1/apps', apps);
+app.use('/api/v1/:appID/banks', banks);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
