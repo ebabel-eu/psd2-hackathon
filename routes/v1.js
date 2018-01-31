@@ -13,8 +13,8 @@ const toReturn = [];
 toReturn.push(entityCrud('apps', ''));
 toReturn.push(entityCrud('banks', '/:appID'));
 toReturn.push(entityCrud('customers'));
-toReturn.push(entityCrud('loans'));
-toReturn.push(entityCrud('transactions'));
+toReturn.push(entityCrud('loans', '/:appID/:customerID'));
+toReturn.push(entityCrud('transactions', '/:appID/:loanID'));
 
 router.get('/' , (req, res, next) => {
   respondJson(res, toReturn);

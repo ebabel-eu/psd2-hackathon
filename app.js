@@ -8,10 +8,13 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 
 const index = require('./routes/index');
+const api = require('./routes/api');
 const v1 = require('./routes/v1');
 const apps = require('./routes/apps');
 const banks = require('./routes/banks');
 const customers = require('./routes/customers');
+const loans = require('./routes/loans');
+const transactions = require('./routes/transactions');
 
 const app = express();
 
@@ -27,10 +30,13 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
+app.use('/api', api);
 app.use('/api/v1', v1);
 app.use('/api/v1/apps', apps);
 app.use('/api/v1/:appID/banks', banks);
 app.use('/api/v1/:appID/:bankID/customers', customers);
+app.use('/api/v1/:appID/:customerID/loans', loans);
+app.use('/api/v1/:appID/:loanID/transactions', transactions);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
