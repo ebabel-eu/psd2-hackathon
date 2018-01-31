@@ -3,4 +3,30 @@ extends layout
 block content
   h1= title
   p Welcome to this ING Hackaton API
-  p Starting point of the API v1: GET <a href='/api/v1'>/api/v1</a>
+  p Documentation of Version 1 of this API: <b>GET</b> <a href='/api/v1'>/api/v1</a>
+
+  h2 Getting started
+  p Start by <b>POST</b>ing to the <a href='/api/v1/apps'>/api/v1/apps</a> endpoint your payload:
+  code {"name": "Your App name", "author": "Developer Name", "contact": "app.developer@ing.nl"}
+  p This will generate random data: 1000 customers spread in 4 banks.
+  p Each customer will get a single loan and each loan will have 11 transactions.
+  p Each app works with its own set of data, so all your calls will start with your app id that will be generated based on your app name when you first POST to <a href='/api/v1/apps'>/api/v1/apps</a>
+  p It's possible to create new records in the database by using basic CRUD operations on the API entities (<b>GET</b> <a href='/api/v1'>/api/v1</a>).
+
+  h2 Business logic
+  p To fit a number of use cases and app ideas, this API business logic has been kept to a minimum.
+  p It is meant to make it easier for you to develop your app.
+
+  h2 PSD 2  
+  p PSD 2 is disabled by default since customers need to opt in.
+
+  h2 API versions
+  p Check all versions currently available: <b>GET</b> <a href='/api'>/api</a>
+
+  h2 Code contributions
+  p If you are interested in making changes to this API, the code is <a href='https://github.com/ebabel-eu/psd2-hackathon'>published on Github</a> so feel free to fork it and raise a pull request.
+  code https://github.com/ebabel-eu/psd2-hackathon
+
+  h2 Feedback
+  p Your opinion matters: changes can be made to this API in the next few versions.
+  p Please <a href="mailto:nadjib.amar@ing.nl">e-mail your suggestions</a> to nadjib.amar@ing.nl
