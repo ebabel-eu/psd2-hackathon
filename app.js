@@ -11,6 +11,7 @@ const index = require('./routes/index');
 const v1 = require('./routes/v1');
 const apps = require('./routes/apps');
 const banks = require('./routes/banks');
+const customers = require('./routes/customers');
 
 const app = express();
 
@@ -29,6 +30,7 @@ app.use('/', index);
 app.use('/api/v1', v1);
 app.use('/api/v1/apps', apps);
 app.use('/api/v1/:appID/banks', banks);
+app.use('/api/v1/:appID/:bankID/customers', customers);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
